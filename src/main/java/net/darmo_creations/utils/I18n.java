@@ -18,12 +18,10 @@
  */
 package net.darmo_creations.utils;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
@@ -41,15 +39,11 @@ public final class I18n {
    * Loads the preferred locale.<br/>
    * <b>This method must be called before any other from this class.</b>
    * 
-   * @param path the path to the language files
-   * @param locale the locale
+   * @param stream the input stream
    * @throws IOException if the lang file cannot be openned
    */
-  public static void init(String path, Locale locale) throws IOException {
-    if (!path.endsWith(File.separator))
-      path += File.separator;
-    InputStream in = I18n.class.getResourceAsStream(path + locale + ".lang");
-    resource = new PropertyResourceBundle(new InputStreamReader(in, StandardCharsets.UTF_8));
+  public static void init(InputStream stream) throws IOException {
+    resource = new PropertyResourceBundle(new InputStreamReader(stream, StandardCharsets.UTF_8));
   }
 
   /**
