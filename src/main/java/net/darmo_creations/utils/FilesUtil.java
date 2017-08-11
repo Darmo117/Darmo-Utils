@@ -19,8 +19,6 @@
 package net.darmo_creations.utils;
 
 import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.Optional;
 
 /**
@@ -75,30 +73,6 @@ public final class FilesUtil {
    */
   public static boolean hasExtension(File file, String ext) {
     return ext.equalsIgnoreCase(getExtension(file).orElse(""));
-  }
-
-  private static String dir;
-
-  /**
-   * @return the jar's directory
-   */
-  public static String getJarDir() {
-    if (dir == null) {
-      String path = ClassLoader.getSystemClassLoader().getResource(".").getPath();
-
-      if (File.separatorChar == '\\')
-        path = path.substring(1); // Removes the first '/' on Windows.
-      dir = path;
-    }
-
-    return dir.replace('/', File.separatorChar);
-  }
-
-  /**
-   * @return the full path of this jar
-   */
-  public static URI getJar() throws URISyntaxException {
-    return FilesUtil.class.getProtectionDomain().getCodeSource().getLocation().toURI();
   }
 
   private FilesUtil() {}
