@@ -52,7 +52,7 @@ public final class JarUtil {
    * @return the full path of this jar
    */
   public static URI getJar() throws URISyntaxException {
-    return FilesUtil.class.getProtectionDomain().getCodeSource().getLocation().toURI();
+    return JarUtil.class.getProtectionDomain().getCodeSource().getLocation().toURI();
   }
 
   /**
