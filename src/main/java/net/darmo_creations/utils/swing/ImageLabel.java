@@ -35,7 +35,6 @@ public class ImageLabel extends JLabel {
   private static final long serialVersionUID = 3710328037282006238L;
 
   private boolean keepRatio;
-  protected int imageX, imageY, imageW, imageH;
 
   /**
    * Creates a label with the specified image and horizontal alignment. The image is centered
@@ -69,7 +68,7 @@ public class ImageLabel extends JLabel {
   }
 
   @Override
-  protected void paintComponent(Graphics g) {
+  protected final void paintComponent(Graphics g) {
     ImageIcon icon = (ImageIcon) getIcon();
 
     if (icon != null) {
@@ -110,12 +109,21 @@ public class ImageLabel extends JLabel {
 
       g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
       g2.drawImage(icon.getImage(), newX, newY, newW, newH, null);
-      this.imageX = newX;
-      this.imageY = newY;
-      this.imageW = newW;
-      this.imageH = newH;
+      paintComponent(g2, newX, newY, newW, newH);
+      g2.dispose();
     }
 
     super.paintComponent(g);
   }
+
+  /**
+   * This method is called right after the image has been drawn.
+   * 
+   * @param g the graphics context
+   * @param x image x
+   * @param y image y
+   * @param w image width
+   * @param h image height
+   */
+  protected void paintComponent(Graphics2D g, int x, int y, int w, int h) {}
 }
