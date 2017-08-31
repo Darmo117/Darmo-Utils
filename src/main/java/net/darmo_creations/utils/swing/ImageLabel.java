@@ -114,7 +114,6 @@ public class ImageLabel extends JLabel {
       this.imageY = newY;
       this.imageW = newW;
       this.imageH = newH;
-      g2.dispose();
     }
 
     super.paintComponent(g);
