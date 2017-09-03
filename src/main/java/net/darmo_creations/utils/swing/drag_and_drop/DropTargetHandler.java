@@ -47,6 +47,7 @@ public class DropTargetHandler extends DropTargetAdapter {
    */
   public DropTargetHandler(DragAndDropListener handler, Component component) {
     this.handler = handler;
+    this.component = component;
   }
 
   @Override
