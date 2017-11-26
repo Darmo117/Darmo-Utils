@@ -41,18 +41,18 @@ public final class EventsBus {
   }
 
   /**
-   * Registers all methods of the given object annotated by the {@link SubsribeEvent} annotation.
+   * Registers all methods of the given object annotated by the {@link SubscribeEvent} annotation.
    * 
    * @param o the object
    * @throws RuntimeException if an annotated method does not fulfill the requirements
-   * @see SubsribeEvent
+   * @see SubscribeEvent
    */
   public void register(Object o) {
     List<Method> methods = new ArrayList<>();
     Method[] publicMethods = o.getClass().getMethods();
 
     for (Method m : publicMethods) {
-      if (m.isAnnotationPresent(SubsribeEvent.class)) {
+      if (m.isAnnotationPresent(SubscribeEvent.class)) {
         Class<?>[] c = m.getParameterTypes();
 
         if (c.length == 1 && AbstractEvent.class.isAssignableFrom(c[0])) {
