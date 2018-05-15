@@ -12,8 +12,8 @@ task createZip(type: Zip) {
   from '/'
   include 'LICENSE'
   from 'build/libs/'
-  include 'Darmo Utils-' + version + '.jar'
-  archiveName 'Darmo_Utils-' + version + '.zip'
+  include 'Darmo-Utils-' + version + '.jar'
+  archiveName 'Darmo-Utils-' + version + '.zip'
   destinationDir(file('/'))
 }
 
