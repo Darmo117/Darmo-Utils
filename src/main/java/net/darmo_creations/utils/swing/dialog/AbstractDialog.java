@@ -134,8 +134,6 @@ public abstract class AbstractDialog extends JDialog {
 
   /**
    * Enables/disables the "Validate" button.
-   * 
-   * @param enabled
    */
   public void setValidateButtonEnabled(boolean enabled) {
     if (this.validationBtn != null) {

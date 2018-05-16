@@ -36,7 +36,7 @@ public final class I18n {
   private static ResourceBundle resource;
 
   /**
-   * Loads the preferred locale.<br/>
+   * Loads the preferred locale.<br>
    * <b>This method must be called before any other from this class.</b>
    * 
    * @param stream the input stream

@@ -49,23 +49,25 @@ public final class JarUtil {
   }
 
   /**
-   * @return the full path of this jar
+   * Returns the full path of this jar.
    */
   public static URI getJar() throws URISyntaxException {
     return JarUtil.class.getProtectionDomain().getCodeSource().getLocation().toURI();
   }
 
   /**
+   * <p>
    * Restarts the application. The method fetches the installed Java binaries and then the jar. Once
    * all has been found, a new process is created for the new application and the current one is
    * closed by calling {@code System.exit(0)}.
+   * </p>
+   * It should be noted that this method does not work when running in an IDE like Eclipse as the
+   * classes are not packed in a jar.
    * 
    * @param executableExtension the extension of the executable file to run. If null, the ".jar"
    *          extension is used
    * @throws IOException if the executable or Java could not be found
    * @throws URISyntaxException if the jar path is ill-formed
-   * @note The method does not work when running in an IDE like Eclipse as the classes are not
-   *       packed in a jar.
    */
   public static void restartApplication(String executableExtension) throws IOException, URISyntaxException {
     String javaBin = System.getProperty("java.home") + File.separator + "bin" + File.separator + "java";

@@ -53,8 +53,8 @@ public class ImageLabel extends JLabel {
    * is centered vertically in its display area.
    * 
    * @param image the image to display
-   * @param if true the image's ratio will be conserved; otherwise the image will be streched to
-   *          fill the whole label
+   * @param keepRatio if true the image's ratio will be conserved; otherwise the image will be
+   *          streched to fill the whole label
    */
   public ImageLabel(ImageIcon image, boolean keepRatio) {
     this(image, JLabel.CENTER, keepRatio);
