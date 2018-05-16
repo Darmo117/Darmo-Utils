@@ -74,7 +74,7 @@ public class DropTargetHandler extends DropTargetAdapter {
           dtde.dropComplete(true);
         }
       }
-      catch (IOException | UnsupportedFlavorException __) {
+      catch (IOException | UnsupportedFlavorException ex) {
         dtde.rejectDrop();
       }
     }
@@ -94,7 +94,7 @@ public class DropTargetHandler extends DropTargetAdapter {
       List<File> files = (List<File>) dtde.getTransferable().getTransferData(DataFlavor.javaFileListFlavor);
       fileAccepted = this.handler.acceptFiles(files, this.component);
     }
-    catch (UnsupportedFlavorException | IOException __) {}
+    catch (UnsupportedFlavorException | IOException ex) {}
 
     if (fileAccepted)
       dtde.acceptDrag(DnDConstants.ACTION_COPY);

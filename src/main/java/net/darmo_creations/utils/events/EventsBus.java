@@ -86,7 +86,7 @@ public final class EventsBus {
           m.invoke(callee, e);
         }
         catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-          throw new RuntimeException(ex); // Should not happen.
+          throw new RuntimeException(ex);
         }
       });
     }

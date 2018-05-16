@@ -24,38 +24,40 @@ package net.darmo_creations.utils.events;
  * @author Damien Vergnet
  */
 public abstract class AbstractEvent {
-  private boolean canceled;
+  private final boolean cancellable;
+  private boolean cancelled;
 
   /**
    * Creates an event. It will be set to not canceled.
    */
-  protected AbstractEvent() {
-    this.canceled = false;
+  protected AbstractEvent(boolean cancellable) {
+    this.cancellable = cancellable;
+    this.cancelled = false;
   }
 
   /**
-   * @return true if this event can be canceled
+   * @return true if this event can be cancelled
    */
-  public boolean isCancelable() {
-    return true;
+  public final boolean isCancellable() {
+    return this.cancellable;
   }
 
   /**
-   * @return true if this event has been canceled
+   * @return true if this event has been cancelled
    */
-  public final boolean isCanceled() {
-    return this.canceled;
+  public final boolean isCancelled() {
+    return this.cancelled;
   }
 
   /**
-   * Cancels this event. If this event is not cancelable, an {@link IllegalStateException} will be
+   * Cancels this event. If this event is not cancellable, an {@link IllegalStateException} will be
    * thrown.
    * 
-   * @throws IllegalStateException if this event is not cancelable
+   * @throws IllegalStateException if this event is not cancellable
    */
-  public final void setCanceled() throws IllegalStateException {
-    if (!isCancelable())
-      throw new IllegalStateException("cannot cancel non-cancelable event " + getClass().getSimpleName());
-    this.canceled = true;
+  public final void setCancelled() throws IllegalStateException {
+    if (!isCancellable())
+      throw new IllegalStateException("cannot cancel non-cancellable event " + getClass().getSimpleName());
+    this.cancelled = true;
   }
 }

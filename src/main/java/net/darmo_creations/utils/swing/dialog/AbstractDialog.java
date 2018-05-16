@@ -50,7 +50,7 @@ public abstract class AbstractDialog extends JDialog {
   private JPanel buttonsPnl;
   private JButton validationBtn, cancelBtn, closeBtn;
   private List<AbstractButton> additionnalBtns;
-  private boolean canceled;
+  private boolean cancelled;
 
   /**
    * Creates a dialog.
@@ -102,7 +102,7 @@ public abstract class AbstractDialog extends JDialog {
 
     add(this.buttonsPnl, BorderLayout.SOUTH);
 
-    setCanceled(false);
+    setCancelled(false);
     installEscapeCloseOperation();
   }
 
@@ -146,17 +146,15 @@ public abstract class AbstractDialog extends JDialog {
   /**
    * @return true if the user clicked "Cancel"; false otherwise
    */
-  public boolean isCanceled() {
-    return this.canceled;
+  public boolean isCancelled() {
+    return this.cancelled;
   }
 
   /**
-   * Sets the dialog to cancelled or not.
-   * 
-   * @param canceled
+   * Sets cancel state.
    */
-  public void setCanceled(boolean canceled) {
-    this.canceled = canceled;
+  public void setCancelled(boolean cancelled) {
+    this.cancelled = cancelled;
   }
 
   /**

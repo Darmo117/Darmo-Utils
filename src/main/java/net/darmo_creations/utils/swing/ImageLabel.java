@@ -63,7 +63,7 @@ public class ImageLabel extends JLabel {
   private ImageLabel(ImageIcon image, int horizontalAlignment, boolean keepRatio) {
     super(image, horizontalAlignment);
     if (horizontalAlignment != CENTER && horizontalAlignment != LEFT && horizontalAlignment != RIGHT)
-      throw new IllegalArgumentException("" + horizontalAlignment);
+      throw new IllegalArgumentException(Integer.toString(horizontalAlignment));
     this.keepRatio = keepRatio;
   }
 

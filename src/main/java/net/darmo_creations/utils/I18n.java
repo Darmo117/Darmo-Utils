@@ -86,7 +86,7 @@ public final class I18n {
     try {
       return resource.getString(unlocalizedString);
     }
-    catch (MissingResourceException __) {
+    catch (MissingResourceException ex) {
       return unlocalizedString;
     }
   }

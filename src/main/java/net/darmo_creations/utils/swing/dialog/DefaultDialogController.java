@@ -49,7 +49,7 @@ public class DefaultDialogController<T extends AbstractDialog> extends WindowAda
   public void actionPerformed(ActionEvent e) {
     switch (e.getActionCommand()) {
       case "cancel":
-        this.dialog.setCanceled(true);
+        this.dialog.setCancelled(true);
       case "close":
       case "validate":
         this.dialog.setVisible(false);
@@ -59,6 +59,6 @@ public class DefaultDialogController<T extends AbstractDialog> extends WindowAda
 
   @Override
   public void windowClosing(WindowEvent e) {
-    this.dialog.setCanceled(true);
+    this.dialog.setCancelled(true);
   }
 }
